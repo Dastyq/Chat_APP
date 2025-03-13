@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Namecat';
+  src: url('/fonts/namecat.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --foreground-rgb: 0, 255, 65;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+.glow {
+  text-shadow: 0 0 5px #00ff41, 0 0 10px #00ff41, 0 0 15px #00ff41, 0 0 20px #00ff41;
+}
+
+/* Add these animations */
+@keyframes minimize {
+  0% {
+    transform: translate(-50%, 0);
+  }
+  100% {
+    transform: translate(-50%, calc(-100% + 2rem));
+  }
+}
+
+@keyframes close {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.8);
+    opacity: 0;
+    display: none;
+  }
+}
+
+.minimize-animation {
+  animation: minimize 0.3s ease-in-out forwards;
+}
+
+.close-animation {
+  animation: close 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.minimize-state {
+  pointer-events: none;
+}
+
+/* Add smooth transitions for minimize state */
+.chat-window {
+  transform-origin: top center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.chat-window.minimized {
+  transform: translate(-50%, calc(-100% + 2rem));
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.chat-window.minimized:hover {
+  transform: translate(-50%, 0);
+}
+
+/* Add maximize transition */
+.chat-window.maximized {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}

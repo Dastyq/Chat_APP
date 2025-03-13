@@ -1,0 +1,12 @@
+{
+  "clone_voices": [
+    {
+      "name": "Gary_Gensler",
+      "speaker": "5ab34dfe-96b4-11ef-a80e-00163e00134a",
+      "description": "voice_1",
+      "files": [
+        "Watch CNBC's full interview with SEC Chair Gary Gensler.mp3"
+      ]
+    }
+  ]
+}

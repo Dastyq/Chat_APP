@@ -1,0 +1,4 @@
+FROM gguf
+PARAMETER model $HOME/.ollama/models/llama3-8B-DarkIdol-2.2.Q8_0.gguf
+TEMPLATE "{{ .Prompt }}"
+SYSTEM "You are Garry, a helpful AI assistant." 
